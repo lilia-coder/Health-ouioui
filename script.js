@@ -1,51 +1,18 @@
-// Fonction pour sauvegarder les données dans localStorage
-function saveData() {
-    const water = document.getElementById('water').value;
-    const exercise = document.getElementById('exercise').value;
-    const mood = document.getElementById('mood').value;
-    const notes = document.getElementById('notes').value;
+// Fonction pour afficher un message de confirmation après la sauvegarde
+function showConfirmation() {
+    const confirmationMessage = document.createElement("p");
+    confirmationMessage.textContent = "Données sauvegardées ! ✅";
+    confirmationMessage.style.color = "green";
+    confirmationMessage.style.textAlign = "center";
+    confirmationMessage.style.fontWeight = "bold";
+    document.body.appendChild(confirmationMessage);
   
-    const data = {
-      water,
-      exercise,
-      mood,
-      notes,
-      date: new Date().toLocaleDateString()
-    };
-  
-    // Sauvegarder dans localStorage
-    let savedData = JSON.parse(localStorage.getItem('healthData')) || [];
-    savedData.push(data);
-    localStorage.setItem('healthData', JSON.stringify(savedData));
-  
-    displaySummary();
+    // Supprimer le message après 2 secondes
+    setTimeout(() => {
+      confirmationMessage.remove();
+    }, 2000);
   }
   
-  // Fonction pour afficher le résumé des données sauvegardées
-  function displaySummary() {
-    const savedData = JSON.parse(localStorage.getItem('healthData')) || [];
-    
-    let summaryText = '';
-    
-    if (savedData.length > 0) {
-      summaryText = savedData.map(item => {
-        return `
-          <div>
-            <h3>${item.date}</h3>
-            <p>Verres d'eau : ${item.water}</p>
-            <p>Sport : ${item.exercise}</p>
-            <p>Humeur : ${item.mood}</p>
-            <p>Notes : ${item.notes}</p>
-          </div>
-        `;
-      }).join('');
-    } else {
-      summaryText = 'Aucune donnée sauvegardée.';
-    }
+  // Fonction pour sauvegarder les données dans
   
-    document.getElementById('summary-text').innerHTML = summaryText;
-  }
-  
-  // Initialiser l'affichage du résumé
-  displaySummary();
   
