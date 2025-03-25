@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suivi Santé - Healthy OuiOui</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>💚 Suivi Santé - Healthy OuiOui</h1>
+    
+    <!-- Objectifs -->
+    <div id="goals">
+      <h2>Objectifs du jour</h2>
+      <p><strong>Boire 8 verres d'eau</strong></p>
+      <p><strong>Faire 30 minutes de sport</strong></p>
+    </div>
+    
+    <!-- Suivi -->
+    <div id="tracker">
+      <h2>Suivi de la journée</h2>
+      <div>
+        <label for="water">Verres d'eau : </label>
+        <input type="number" id="water" placeholder="Ex: 5" />
+      </div>
+      <div>
+        <label for="exercise">Avez-vous fait du sport ? </label>
+        <select id="exercise">
+          <option value="non">Non</option>
+          <option value="oui">Oui</option>
+        </select>
+      </div>
+      <div>
+        <label for="mood">Humeur du jour : </label>
+        <select id="mood">
+          <option value="😊">😊</option>
+          <option value="😐">😐</option>
+          <option value="😞">😞</option>
+        </select>
+      </div>
+      <div>
+        <label for="notes">Notes : </label>
+        <textarea id="notes" placeholder="Écrivez vos notes ici"></textarea>
+      </div>
+      <button onclick="saveData()">Sauvegarder</button>
+    </div>
+    
+    <!-- Résumé des données sauvegardées -->
+    <div id="summary">
+      <h2>Résumé des suivis</h2>
+      <p id="summary-text">Aucune donnée sauvegardée.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
